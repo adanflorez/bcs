@@ -3,10 +3,12 @@ from datetime import date
 from rest_framework.viewsets import ModelViewSet
 
 from revenue.api.serializers import RevenueSerializer
+from revenue.api.permissions import IsAdminOrReadOnly
 from revenue.models import Revenue
 
 
 class RevenueViewSet(ModelViewSet):
+    permission_classes = [IsAdminOrReadOnly]
     serializer_class = RevenueSerializer
 
     def get_queryset(self):
