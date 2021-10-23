@@ -8,7 +8,14 @@ from expense.models import Expense
 
 @api_view(['GET'])
 def get_expense_by_budget(request, budget_id):
-    expenses = Expense.objects.filter(budget=budget_id)
+    expenses = Expense.objects.filter(budget=budget_id, budget__category='4')
+    serializer = ExpenseSerializer(expenses, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_expense_by_category(request, category_id):
+    expenses = Expense.objects.filter(budget__category=category_id)
     serializer = ExpenseSerializer(expenses, many=True)
     return Response(serializer.data)
 
