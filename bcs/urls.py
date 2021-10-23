@@ -22,6 +22,7 @@ from drf_yasg import openapi
 from category.api.router import router_category
 from revenue.api.router import router_revenue
 from expense.api.router import router_expense
+from budget.api.router import router_budget
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -43,5 +44,6 @@ urlpatterns = [
    path('api/', include('users.api.router')),
    path('api/', include(router_category.urls)),
    path('api/', include(router_revenue.urls)),
-   path('api/', include(router_expense.urls)),
+   path('api/', include('expense.api.router')),
+   path('api/', include(router_budget.urls))
 ]

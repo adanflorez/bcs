@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'category',
     'revenue',
     'expense',
+    'budget',
 ]
 
 MIDDLEWARE = [
