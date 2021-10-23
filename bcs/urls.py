@@ -44,6 +44,6 @@ urlpatterns = [
    path('api/', include('users.api.router')),
    path('api/', include(router_category.urls)),
    path('api/', include(router_revenue.urls)),
-   path('api/', include(router_expense.urls)),
+   path('api/', include('expense.api.router')),
    path('api/', include(router_budget.urls))
 ]
