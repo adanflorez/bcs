@@ -21,6 +21,7 @@ from drf_yasg import openapi
 
 from category.api.router import router_category
 from revenue.api.router import router_revenue
+from expense.api.router import router_expense
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -41,5 +42,6 @@ urlpatterns = [
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('api/', include('users.api.router')),
    path('api/', include(router_category.urls)),
-   path('api/', include(router_revenue.urls))
+   path('api/', include(router_revenue.urls)),
+   path('api/', include(router_expense.urls)),
 ]
