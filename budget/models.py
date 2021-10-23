@@ -13,4 +13,4 @@ class Budget(models.Model):
     category = models.ForeignKey(Category, on_delete=SET_NULL, null=True)
 
     def __str__(self):
-        return self.start_date
+        return self.title
