@@ -13,7 +13,7 @@ class Budget(models.Model):
     period = models.ForeignKey(Period, on_delete=CASCADE)
     remaining = models.IntegerField(editable=False)
 
-    def save(self,  *args, **kwargs):
+    def save(self, *args, **kwargs):
         self.remaining = self.amount
         super(Budget, self).save(*args, **kwargs)
 
